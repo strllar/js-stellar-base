@@ -1,6 +1,7 @@
 import {hash} from "./hashing";
 
 export const Networks = {
+	KLM: "KLM is a Kilo of xLM; Strllar is an awesome copycat Stellar.",
 	PUBLIC: "Public Global Stellar Network ; September 2015",
 	TESTNET: "Test SDF Network ; September 2015",
 };
@@ -19,9 +20,13 @@ var current;
 export class Network {
 
 	static useDefault() {
-		this.useTestNetwork();
+		this.useKLM();
 	}
 
+	static useKLM() {
+		this.use(new Network(Networks.KLM));
+	}
+	
 	static usePublicNetwork() {
 		this.use(new Network(Networks.PUBLIC));
 	}

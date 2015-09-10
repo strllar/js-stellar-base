@@ -3,8 +3,8 @@ import crc from "crc";
 import {contains, isUndefined, isNull, isString} from "lodash";
 
 const versionBytes = {
-  accountId: 0x30,
-  seed:      0x90
+  accountId: 0x68,
+  seed:      0xbe
 };
 
 export function decodeCheck(versionByteName, encoded) {
