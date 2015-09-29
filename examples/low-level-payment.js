@@ -7,7 +7,7 @@ let destination = StellarBase.Keypair.fromAddress("NDRYJ5KQRVR3H5LSE7WXXRJ5UDXYH
 
 let tx = new StellarBase.xdr.Transaction({
   sourceAccount: master.accountId(),
-  fee:        30,
+  fee:        300,
   seqNum:        StellarBase.xdr.SequenceNumber.fromString("1"),
   memo:  StellarBase.xdr.Memo.memoText("hello world"),
   ext:   new StellarBase.xdr.TransactionExt(0)
@@ -16,12 +16,12 @@ let tx = new StellarBase.xdr.Transaction({
 let payment = new StellarBase.xdr.PaymentOp({
   destination: destination.accountId(),
   asset:    StellarBase.xdr.Asset.assetTypeNative(),
-	amount:      StellarBase.Hyper.fromString("99999999959999970")
+	amount:      StellarBase.Hyper.fromString("999999999599999700")
 })
 
 let createacct = new StellarBase.xdr.CreateAccountOp({
 	destination: destination.publicKey(),
-	startingBalance: StellarBase.Hyper.fromString("20000000")
+	startingBalance: StellarBase.Hyper.fromString("200000000")
 })
 
 let op0 = new StellarBase.xdr.Operation({
@@ -51,3 +51,4 @@ let signatures = [master.signDecorated(tx_hash)];
 let envelope = new StellarBase.xdr.TransactionEnvelope({tx, signatures});
 
 console.log(envelope.toXDR("base64"));
+console.log(encodeURIComponent(envelope.toXDR("base64")));
